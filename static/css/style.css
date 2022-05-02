@@ -1,0 +1,251 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root {
+	font-size: 16px;
+}
+html {
+	font-family: 'Nunito';
+}
+.mic ,.speaker{
+	height: 40px;
+	width: 40px;
+}
+.mic>img,.speaker > img {
+	height: 100%;
+	width: 100%;
+}
+
+.super {
+	min-height: 90vh;
+	width: 100vw;
+	background-color: blanchedalmond;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-bottom: 100px;
+}
+.super>div {
+	margin-top: 20px;
+}
+.main,.super > div {
+	max-width:min(800px,90vw);
+	min-width: min(90vw,700px);
+	display: flex;
+	justify-content: space-around;
+	border: 2px solid;
+	flex-direction: column;
+	align-items: center	;
+	padding: 10px;
+	border-radius: 6px;
+	margin-top: 20px;
+}
+.heading {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+.heading > h1 {
+	font-size: 1.5rem;
+}
+.join>button {
+	height: 40px;
+	padding: 10px 15px;
+	border: 1px solid ghostwhite;
+	border-radius: 6px;
+	background-color: cornflowerblue;
+	color: ghostwhite;
+	margin: 20px;
+	}
+
+.ctrls {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items:center ;
+}
+.ctrls>div {
+	margin: 10px;
+}
+.dataDiv {
+	width: 100%;
+	display: flex;
+	flex-direction:column ;
+}
+.data {
+	width: 100%;
+	display: flex;
+}
+.data > div {
+	font-size: 1.2rem;
+	text-align: center;
+	padding:0 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.key {
+	width: 50%;
+	border-right: 2px solid;
+	text-align:center ;
+}
+.value {
+	border: 0px solid;
+	width: 50%;
+	text-align: center;
+}
+.users {
+	width: 100%;
+
+}
+.user,.msg {
+	height: auto;
+	font-size: 1.2rem;
+	display:inline-block ;
+	padding: 5px 10px;
+
+}
+.msgs {
+	width: 100%;
+	max-height: 600px;
+	overflow-y: scroll;
+	position: relative;
+
+}
+.msg {
+	display: flex;
+	flex-direction:column ;
+	border: 2px solid #ababab;
+	background: rgba(255,255,255,0.3);
+	border-radius: 6px;
+	margin: 5px;
+	overflow: hidden;
+	word-wrap: break-word;
+	line-height: 120%;	
+	
+}
+.sender {
+	font-size: 0.8rem;
+	font-weight: bold;
+	color: #666;
+	padding-bottom: 3px;
+	color: green;
+}
+.time {
+	font-size: 0.8rem;
+	font-weight: bold;
+	text-align: right;
+	color: #666;
+	color: green;
+}
+
+.msgTxt {
+	font-size: 1rem;
+}
+
+.inp {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	min-height: 50px;
+	padding: 5px 0;
+	
+}
+.inp > input {
+	width: 80%;
+	height: 50px;
+	color: green;
+	background: rgba(255,255,255,0.3);
+	border-radius: 6px;
+	border: 2px solid #ababab;
+	font-size: 1rem;
+	padding-left: 5px;
+}
+.inp >button {
+	width: 15%;
+	height: 50px;
+	background: rgba(255,255,255,0.3);
+	border-radius: 6px;
+	border: 2px solid #ababab;
+	font-size: 1rem;
+}
+.red {
+	color: red;
+}
+.skyblue {
+	color: deepskyblue;
+}
+.orange {
+	color:orange;
+}
+.magenta {
+	color: magenta;
+}
+.green {
+	color: green;
+}
+.blue {
+	color:blue ;
+}
+.violet {
+	color: violet;
+}
+.helpBox {
+	width: 100%;
+}
+.medHead {
+	width: 100%;
+}
+.medHead > h1 {
+	font-size: 1.3rem;
+	text-align: left;
+	width: 100%;
+	font-weight: bolder;
+	display: inline-block;
+}
+.text {
+	margin-top: 5px;
+	line-height: 150%;
+}
+.text>span {
+	color: green;
+	font-weight: bold;
+}
+.helpBox,.privacy ,.tos{
+	overflow: scroll;
+	transition:height 0.5s ease-in-out;
+	height: 0;
+}
+.vdos {
+	padding-bottom: 0;
+	border: 2px solid red;
+}
+.vdo {
+	height: 100%;
+	width: 100%;
+	border-radius: 4px;
+	position:relative;
+	padding: 0;
+}
+video {
+	display: block;
+}
+#vdo1{
+	height: 100%;
+	background: #000;
+	width: 100%;
+	height: 500px;
+	border: 0px solid;object-fit: cover;
+}
+#vdo2 {
+	width: auto;
+	height: 150px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}

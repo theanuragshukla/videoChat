@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/static/css/style.css">
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/static/js/script.js"></script>
+		<title>Talk n Chill</title>
+	</head>
+	<body>
+		<div class="super">
+			<div class="heading">
+				<h1>Talk n Chill</h1>
+
+			</div>
+
+			<div class="info">
+				<div class="heading">
+					<h1>Your Info</h1>
+				</div>
+				<div class="dataDiv">
+					<div class="data">
+						<div class="key">Name</div>
+						<div class="value" id="name"></div>
+					</div>
+					<div class="data">
+						<div class="key">User Id</div>
+						<div class="value" id="id"></div>
+					</div>
+					<div class="data">
+						<div class="key">Channel Id</div>
+						<div class="value" id="room"></div>
+					</div>
+				</div>
+			</div>
+			<div class="vdos">
+				<div class="heading">
+					<h1>Watch 'em</h1>
+				</div>
+				<div class="vdo">
+					<video id="vdo1" height="400px" autoplay></video>
+					<video id="vdo2" src="" autoplay></video>
+				</div>
+			</div>
+			<div class="main">
+				<div class="heading">
+					<h1>Controls</h1>
+				</div>
+				<div class="join">
+					<button onclick="joinChannel(this)">Join Chat</button>
+				</div>
+				<div class="ctrls">
+					<div class="mic" ><img src="/static/img/micMute.svg" onclick="muteOutgoing(this)"/></div>
+					<div class="speaker"><img src="/static/img/videoOff.svg" onclick="toggleVideo(this)"/></div>
+					<div class="speaker"><img src="/static/img/sound.svg" onclick="muteIncoming(this)"/></div>
+				</div>
+			</div>	
+			<div class="allUsers">
+				<div class="heading">
+					<h1>In this Channel</h1>
+				</div>
+				<div id="users" class="users"></div>
+			</div>
+			<div class="chats">
+				<div class="heading">
+					<h1>Text Messages</h1>
+				</div>
+				<div id="msgs" class="msgs">
+				</div>	<div class="inp">
+					<input type="text" id="usrMsg" placeholder="Type a message">
+					<button onclick="sendMsg()">Send</button>
+				</div>
+
+			</div>
+			<div class="help">
+				<div class="heading">
+					<h1> Need Help ?</h1>
+				</div>
+				<div class="join">
+					<button onclick="toggleHelp(this)" id="helpBtn">Show Help</button>
+				</div>
+				<div class="helpBox" id="helpBox">
+					<div class="medHead">
+						<h1># What is this ?</h1>
+					</div>
+					<div class="text">
+						This platform Provides users with the ability to voice chat with others in real-time. Users can choose to use any mode of communication to chat with others.
+					</div>
+					<div class="medHead">
+						<h1># How to Start ?</h1>
+					</div>
+					<div class="text">
+						If you're reading this, you've probably already filled your <span>NAME</span> and <span>CHANNEL ID</span>. If not, then Close the Current Tab and reopen this website. Then, You'll get Prompt asking for your <span>NAME</span> and <span>CHANNEL ID</span>. 
+					</div>
+					<div class="medHead">
+						<h1># What is Channel ID ?</h1></div>
+					<div class="text">
+						Channel ID is ID of a virtual room, where people can join the conversation with others. Each room can fit multiple users and allows them to Chat with each other.
+					</div>
+					<div class="text">
+						When Opening this WebPage, You were assigned a random Channel, Which You can Change to whatever you want.
+					</div>
+					<div class="text">
+						Users with you Channel ID will be able to join your channel. So, you may want to share your Channel ID with your Friends and Family.
+					</div>
+					<div class="medHead">
+						<h1># Then What ?</h1>
+					</div>
+					<div class="text">
+						After Getting your Name and Channel Id, Click on <span>Join Chat</span> button to enter the Chatroom. And Now, You can see Other Users in the current Channel. 
+					</div>
+					<div class="medHead">
+						<h1># How to Chat ?</h1>
+					</div>
+					<div class="text">
+						Once You've Joined The Room, You can use either <span>Voice Chat</span> or <span>Texting</span> or both to communicate with other Users.
+					</div>
+				</div>
+			</div>
+			<div class="policy">
+				<div class="heading">
+					<h1>
+						All Good, but Privacy ?
+					</h1>
+				</div>
+				<div class="join">
+					<button onclick="togglePolicy(this)">Show Privacy Policy</button>
+				</div>
+				<div class="privacy" id="privacy">
+					<div class="medHead">
+						<h1>This Platform doesn't collect any type of User Data and this Project is Completely OpenSource.</h1>
+					</div>
+					<div class="text">
+						<div class="medHead">
+							<h1 class="red"># Some Clarifications</h1>
+						</div>
+						<div class="text">
+							# We Don't Ask for Any User Data.
+						</div>
+						<div class="text">
+							# We Don't Collect Any User Data.</div>
+						<div class="text">
+							# Any Of the Chats and voice Data is never stored whatsoever.
+						</div>
+						<div class="text"># Any Public Information e.g., <span>Name</span> is removed as soon as you close this Browser Tab.</div>
+					</div>
+				</div>
+			</div>
+			<div class="tosDiv">
+				<div class="heading">
+					<h1>Terms of Service</h1>
+				</div>
+				<div class="join">
+					<button onclick="toggleTos(this)">Show ToS</button>
+				</div>
+				<div class="tos" id="tos">
+					<div class="text">
+						# Use of this Platform for any illegel activity is not allowed.
+					</div>
+					<div class="text">
+						# Use of this Platform illegaly may call legal actions upon you.
+					</div>
+					<div class="text">
+						# You(user) and only you will be responsible for any activites done by you on this platform. 
+					</div>
+					<div class="text">
+						# This platform should not be used to do any kind of loss to others which affect them physically/mentally/emotionally.
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
